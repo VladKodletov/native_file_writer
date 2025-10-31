@@ -1,4 +1,3 @@
-```markdown
 # Native File Writer App
 
 A Flutter application with native iOS integration that demonstrates writing to files using Swift and MethodChannel. The app features a simple counter that writes "hello world N" to a text file with each button press.
@@ -6,10 +5,10 @@ A Flutter application with native iOS integration that demonstrates writing to f
 ## 📱 Demo
 
 ### Initial State
-![initial_state](https://github.com/user-attachments/assets/38ff8d2d-7ddc-45cc-b35f-55c924b297ea)
+<img src="demo/initial_state.png" alt="App Demo" width="240" />
 
 ### After Multiple Clicks  
-![working_state](https://github.com/user-attachments/assets/e786e2f8-ade3-451e-983d-71700c5b6848)
+<img src="demo/working_state.png" alt="App Demo" width="240" />
 
 
 ## 🚀 Features

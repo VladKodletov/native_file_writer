@@ -31,20 +31,20 @@ class MyApp extends StatelessWidget {
             context.read<FileWriterRepository>(),
           ),
         ),
-      ],
-      child: BlocProvider(
-        create: (context) => FileWriterBloc(
-          writeToFileUseCase: context.read<WriteToFileUseCase>(),
-        ),
-        child: MaterialApp(
-          title: 'Native File Writer',
-          theme: ThemeData(
-            primarySwatch: Colors.deepOrange,
-            useMaterial3: false,
+        BlocProvider(
+          create: (context) => FileWriterBloc(
+            writeToFileUseCase: context.read<WriteToFileUseCase>(),
           ),
-          home: const FileWriterPage(),
-          debugShowCheckedModeBanner: false,
+        )
+      ],
+      child: MaterialApp(
+        title: 'Native File Writer',
+        theme: ThemeData(
+          primarySwatch: Colors.deepOrange,
+          useMaterial3: false,
         ),
+        home: const FileWriterPage(),
+        debugShowCheckedModeBanner: false,
       ),
     );
   }

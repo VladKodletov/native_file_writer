@@ -55,7 +55,7 @@ A Flutter application with native iOS integration that demonstrates writing to f
 ## 🎯 How to Use
 
 1. **Launch the App**: Open the app to see the initial screen with counter at 0
-2. **Press the Button**: Tap "Write to File (N=0)" to increment the counter
+2. **Press the Button**: Tap "Write to File" to increment the counter
 3. **View Results**: Watch as:
    - Counter increases (N=1, N=2, N=3...)
    - File content updates in real-time

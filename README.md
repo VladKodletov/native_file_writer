@@ -6,10 +6,10 @@ A Flutter application with native iOS integration that demonstrates writing to f
 ## 📱 Demo
 
 ### Initial State
-<img src="demo/initial_state.png" width="240" />
+![initial_state](https://github.com/user-attachments/assets/38ff8d2d-7ddc-45cc-b35f-55c924b297ea)
 
 ### After Multiple Clicks  
-<img src="demo/working_state.png" width="240" />
+![working_state](https://github.com/user-attachments/assets/e786e2f8-ade3-451e-983d-71700c5b6848)
 
 
 ## 🚀 Features

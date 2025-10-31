@@ -8,7 +8,8 @@ public:
     static bool writeToFile(const std::string& content);
     static std::string readFromFile();
 private:
-    static const std::string kFilePath;
+    static const std::string getDocumentsPath();
+    static const std::string kFileName;
 };
 
 #endif /* FileWriter_hpp */

@@ -4,7 +4,6 @@ import 'package:native_file_writer/features/file_writer/presentation/bloc/file_w
 import 'package:native_file_writer/features/file_writer/presentation/widgets/counter_button.dart';
 import 'package:native_file_writer/features/file_writer/presentation/widgets/file_content_display.dart';
 
-
 class FileWriterPage extends StatelessWidget {
   const FileWriterPage({super.key});
 
@@ -13,7 +12,7 @@ class FileWriterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Native File Writer'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.deepOrange,
         foregroundColor: Colors.white,
       ),
       body: Padding(
@@ -23,23 +22,15 @@ class FileWriterPage extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Expanded(flex: 2, child: SizedBox()),
                 const Icon(
                   Icons.description,
                   size: 80,
-                  color: Colors.blue,
+                  color: Colors.deepOrange,
                 ),
                 const SizedBox(height: 24),
                 const Text(
-                  'Native File Writer Demo',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blue,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  'Tap the button to write to file via native iOS code',
+                  'Tap the button to write to file\nvia native iOS code',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -48,19 +39,26 @@ class FileWriterPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
                 CounterButton(
-                  onPressed: () => context.read<FileWriterBloc>().add(const WriteToFileEvent()),
+                  onPressed: () => context
+                      .read<FileWriterBloc>()
+                      .add(const WriteToFileEvent()),
                   isLoading: state is FileWriterLoading,
                   counter: state is FileWriterSuccess ? state.counter : 0,
                 ),
-                const SizedBox(height: 40),
+                const Expanded(flex: 2, child: SizedBox()),
                 Expanded(
+                  flex: 8,
                   child: FileContentDisplay(
-                    content: state is FileWriterSuccess ? state.fileContent : 
-                            state is FileWriterInitial ? 'Press the button to start' : 
-                            state is FileWriterError ? 'Error: ${state.message}' : 
-                            'Loading...',
+                    content: state is FileWriterSuccess
+                        ? state.fileContent
+                        : state is FileWriterInitial
+                            ? 'Press the button to start'
+                            : state is FileWriterError
+                                ? 'Error: ${state.message}'
+                                : 'Loading...',
                   ),
                 ),
+                const Expanded(flex: 4, child: SizedBox())
               ],
             );
           },

@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: 'Native File Writer',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.deepOrange,
             useMaterial3: false,
           ),
           home: const FileWriterPage(),

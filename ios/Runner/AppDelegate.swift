@@ -3,7 +3,7 @@ import UIKit
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
-    private let channelName = "com.example.native_file_writer/file_channel"
+    private let channelName = "native_file_writer"
     private let fileWriter = NativeFileWriter()
     
     override func application(
@@ -21,19 +21,24 @@ import UIKit
             
             switch call.method {
             case "writeToFile":
-                guard let content = call.arguments as? String else {
+                guard let args = call.arguments as? [String: Any],
+                      let counter = args["counter"] as? Int else {
                     result(FlutterError(code: "INVALID_ARGUMENTS",
-                                      message: "Expected string content",
+                                      message: "Expected counter argument",
                                       details: nil))
                     return
                 }
                 
-                let success = self.fileWriter.writeToFile(withContent: content)
-                result(success)
-                
-            case "readFromFile":
-                let content = self.fileWriter.readFromFile()
-                result(content)
+                let content = "hello world \(counter)"
+                if self.fileWriter.writeToFile(withContent: content) {
+                    // After successful write, read and return the content
+                    let fileContent = self.fileWriter.readFromFile()
+                    result(fileContent)
+                } else {
+                    result(FlutterError(code: "WRITE_ERROR",
+                                      message: "Failed to write to file",
+                                      details: nil))
+                }
                 
             default:
                 result(FlutterMethodNotImplemented)
